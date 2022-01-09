@@ -16,7 +16,7 @@ import java.util.List;
 
 @Configuration
 public class LoadDB {
-    private static final Logger log = LoggerFactory.getLogger(LoadDB.class);
+    private static final Logger logger = LoggerFactory.getLogger(LoadDB.class);
     private File csvFileStorageData;
 
 
@@ -26,8 +26,9 @@ public class LoadDB {
             csvFileStorageData = ResourceUtils.getFile("classpath:AppServiceData.csv");
             List<Product> beans = new CsvToBeanBuilder<Product>(new FileReader(csvFileStorageData))
                     .withType(Product.class).build().parse();
-            beans.forEach(x -> log.info("loading Product for Product API " + repository.save(x)));
+            beans.forEach(x -> logger.info("loading Product for Product API " + repository.save(x)));
         };
     }
 }
+
 
