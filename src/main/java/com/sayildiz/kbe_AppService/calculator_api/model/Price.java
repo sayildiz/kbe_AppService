@@ -1,5 +1,5 @@
 //FROM https://github.com/sayildiz/kbe_Calculator/blob/main/src/main/java/com/sayildiz/kbe/calculator/model/Price.java
-package com.sayildiz.kbe_AppService.model;
+package com.sayildiz.kbe_AppService.calculator_api.model;
 
 import java.math.BigDecimal;
 import java.util.Objects;

@@ -1,5 +1,5 @@
 //FROM https://github.com/sayildiz/kbe_Storage/blob/main/src/main/java/com/sayildiz/kbe_storage/productinfo_api/model/ProductInfo.java
-package com.sayildiz.kbe_AppService.model;
+package com.sayildiz.kbe_AppService.storage_api.model;
 
 import com.opencsv.bean.CsvBindByName;
 import com.sun.istack.NotNull;

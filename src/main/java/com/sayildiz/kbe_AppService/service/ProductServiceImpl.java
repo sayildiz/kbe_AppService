@@ -1,15 +1,16 @@
 package com.sayildiz.kbe_AppService.service;
 
-import com.sayildiz.kbe_AppService.model.Price;
+import com.sayildiz.kbe_AppService.calculator_api.model.Price;
+import com.sayildiz.kbe_AppService.calculator_api.service.CalculatorService;
 import com.sayildiz.kbe_AppService.model.Product;
 import com.sayildiz.kbe_AppService.model.ProductDetails;
-import com.sayildiz.kbe_AppService.model.ProductInfo;
+import com.sayildiz.kbe_AppService.storage_api.model.ProductInfo;
 import com.sayildiz.kbe_AppService.repository.ProductRepository;
+import com.sayildiz.kbe_AppService.storage_api.service.StorageService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 

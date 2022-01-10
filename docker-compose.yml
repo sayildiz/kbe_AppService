@@ -22,11 +22,11 @@ services:
   #     - sftp.channelTimeout=15000
   #   volumes:
   #     - ./:/app/app
-  db:
+  db_appservice:
     image: 'postgres'
-    container_name: db
+    container_name: db_appservice
     ports:
-      - "5432:5432"
+      - "5433:5432"
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
