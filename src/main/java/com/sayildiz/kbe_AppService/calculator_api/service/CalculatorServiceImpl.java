@@ -19,15 +19,15 @@ public class CalculatorServiceImpl implements CalculatorService {
     @Value("${calculator.port}")
     private String calculatorPort;
 
-    @Value("${calculator.productInfoAPI}")
-    private String calculatorProductInfoAPI;
+    @Value("${calculator.VatAPI}")
+    private String calculatorVatAPI;
 
     @Autowired
     private RestTemplate restTemplate;
 
     @Override
     public Price getPrice(BigDecimal price) {
-        String url = String.format("%s:%s/%s", calculatorHost, calculatorPort, calculatorProductInfoAPI);
+        String url = String.format("%s:%s/%s", calculatorHost, calculatorPort, calculatorVatAPI);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<String> request = new HttpEntity<>(price.toPlainString(), headers);

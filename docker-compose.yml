@@ -1,32 +1,41 @@
 version: "3.9"
 
 services:
-  # app:
-  #   container_name: SpringBootApp
-  #   command: java -jar target/demo-0.0.1-SNAPSHOT.jar
-  #   build:
-  #     context: .
-  #     dockerfile: .docker/Dockerfile
-  #   ports:
-  #     - "8080:8080"
-  #   environment:
-  #     - SPRING_DATASOURCE_URL=jdbc:postgresql://db/
-  #     - SPRING_DATASOURCE_USERNAME=admin
-  #     - SPRING_DATASOURCE_PASSWORD=admin
-  #     - SPRING_JPA_HIBERNATE_DDL_AUTO=update
-  #     - sftp.host=sftp
-  #     - sftp.port=22
-  #     - sftp.username=foo
-  #     - sftp.password=pass
-  #     - sftp.sessionTimeout=15000
-  #     - sftp.channelTimeout=15000
-  #   volumes:
-  #     - ./:/app/app
-  db_appservice:
+   appservice:
+     container_name: appservice
+     command: java -jar target/demo-0.0.1-SNAPSHOT.jar
+     build:
+       context: .
+       dockerfile: .docker/Dockerfile
+     ports:
+       - "56668:56668"
+     environment:
+       - SPRING_DATASOURCE_URL=jdbc:postgresql://db_appservice/
+       - SPRING_DATASOURCE_USERNAME=admin
+       - SPRING_DATASOURCE_PASSWORD=admin
+       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+       - sftp.host=sftp
+       - sftp.port=22
+       - sftp.username=foo
+       - sftp.password=pass
+       - sftp.sessionTimeout=15000
+       - sftp.channelTimeout=15000
+
+       - storage.host=http://storage
+       - storage.port=56666
+       - storage.productInfoAPI=productinfo
+
+       - calculator.host=http://calculator
+       - calculator.port=56667
+       - calculator.VatAPI=vat
+
+     volumes:
+       - ./:/app/app
+   db_appService:
     image: 'postgres'
     container_name: db_appservice
     ports:
-      - "5433:5432"
+      - "5432"
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: admin
@@ -39,3 +48,8 @@ services:
   #   ports:
   #     - "10022:22"
   #   command: foo:pass:::upload
+
+networks:
+  default:
+    external:
+      name: myNetwork
