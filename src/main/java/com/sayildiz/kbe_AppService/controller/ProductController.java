@@ -27,4 +27,9 @@ public class ProductController {
         logger.info("GET /product");
         return productService.getProductList();
     }
+
+    @GetMapping("/product/{uuid}")
+    public ProductDetails getProductDetailsByUUID(@PathVariable UUID uuid){
+        return productService.getProductByUuid(uuid);
+    }
 }
