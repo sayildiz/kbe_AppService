@@ -2,13 +2,16 @@
 
 ## Usage
 
-to run inside IntelliJ first do:
+### Alongside the other Projects
+
+#### Create Network in Docker
 
 ```
-docker compose -f docker-compose.yml up -d
+docker network create myNetwork
 ```
 
-or **Right-Click** on *docker-compose.yml* and **run**
+then run in projectFolder of each microService
 
-and than **Run** Application inside IntelliJ
-
+```
+docker compose up -d
+```
