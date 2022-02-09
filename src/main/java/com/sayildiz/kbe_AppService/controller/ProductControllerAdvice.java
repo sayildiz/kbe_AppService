@@ -13,7 +13,7 @@ public class ProductControllerAdvice {
     @ExceptionHandler
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    String SongNotFoundHandler(HttpClientErrorException.NotFound exception){
+    String ProductNotFoundHandler(HttpClientErrorException.NotFound exception){
         return exception.getMessage();
     }
 }
