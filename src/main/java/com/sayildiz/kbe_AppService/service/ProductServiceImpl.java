@@ -5,8 +5,8 @@ import com.sayildiz.kbe_AppService.calculator_api.service.CalculatorService;
 import com.sayildiz.kbe_AppService.exception.ProductNotFoundException;
 import com.sayildiz.kbe_AppService.model.Product;
 import com.sayildiz.kbe_AppService.model.ProductDetails;
-import com.sayildiz.kbe_AppService.storage_api.model.ProductInfo;
 import com.sayildiz.kbe_AppService.repository.ProductRepository;
+import com.sayildiz.kbe_AppService.storage_api.model.ProductInfo;
 import com.sayildiz.kbe_AppService.storage_api.service.StorageService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,6 @@ public class ProductServiceImpl implements ProductService{
 
     @Override
     public ProductDetails getProductByUuid(UUID uuid) {
-        //TODO Validate ProductDetails Result
         ProductDetails productDetails = new ProductDetails();
 
         Product product = repository.findByUuid(uuid);
