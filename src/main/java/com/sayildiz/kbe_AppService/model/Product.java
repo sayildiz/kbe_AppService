@@ -1,10 +1,10 @@
 package com.sayildiz.kbe_AppService.model;
 
 import com.opencsv.bean.CsvBindByName;
-import com.sun.istack.NotNull;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.util.Objects;
 import java.util.UUID;
