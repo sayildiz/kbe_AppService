@@ -2,6 +2,7 @@ package com.sayildiz.kbe_AppService.service;
 
 import com.sayildiz.kbe_AppService.calculator_api.model.Price;
 import com.sayildiz.kbe_AppService.calculator_api.service.CalculatorService;
+import com.sayildiz.kbe_AppService.exception.ProductNotFoundException;
 import com.sayildiz.kbe_AppService.model.Product;
 import com.sayildiz.kbe_AppService.model.ProductDetails;
 import com.sayildiz.kbe_AppService.storage_api.model.ProductInfo;
@@ -35,6 +36,9 @@ public class ProductServiceImpl implements ProductService{
         ProductDetails productDetails = new ProductDetails();
 
         Product product = repository.findByUuid(uuid);
+        if(product == null){
+            throw new ProductNotFoundException(uuid);
+        }
         ProductInfo productInfo = storageService.getProductInfo(uuid);
         Price price = calculatorService.getPrice(product.getPrice());
 
