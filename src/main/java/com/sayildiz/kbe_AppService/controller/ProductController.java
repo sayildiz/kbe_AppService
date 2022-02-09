@@ -1,6 +1,7 @@
 package com.sayildiz.kbe_AppService.controller;
 
 import com.sayildiz.kbe_AppService.model.Product;
+import com.sayildiz.kbe_AppService.model.ProductDTO;
 import com.sayildiz.kbe_AppService.model.ProductDetails;
 import com.sayildiz.kbe_AppService.service.ProductService;
 import org.slf4j.Logger;
@@ -23,7 +24,7 @@ public class ProductController {
     }
 
     @GetMapping("/product")
-    public List<Product> getProductList(){
+    public List<ProductDTO> getProductList(){
         logger.info("GET /product");
         return productService.getProductList();
     }
