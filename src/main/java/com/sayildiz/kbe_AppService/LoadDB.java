@@ -55,11 +55,11 @@ public class LoadDB {
             boolean isExported = csvExport.writeCsvFromProduct(Paths.get(csvExport.CSV_LOCATION));
             logger.info("uploading file...");
             boolean isUploaded = fileTransferService.uploadFile(csvExport.CSV_LOCATION, "/upload/" + csvExport.CSV_LOCATION);
-            if(isExported && isUploaded){
+            if(!isExported || !isUploaded){
                 logger.error("Export error");
                 return;
             }
-            logger.info("Upload sucessful");
+
         }catch (Exception e){
             e.printStackTrace();
         }
