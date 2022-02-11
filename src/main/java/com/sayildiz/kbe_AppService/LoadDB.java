@@ -48,7 +48,7 @@ public class LoadDB {
         };
     }
 
-    @Scheduled(fixedDelay = 3600, timeUnit = TimeUnit.SECONDS)
+    @Scheduled(fixedDelay = 3600, initialDelay = 20, timeUnit = TimeUnit.SECONDS)
     public void exportDatabasetoCSVAndUpload() {
         logger.info("Start exporting database");
         try{
